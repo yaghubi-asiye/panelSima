@@ -14,7 +14,7 @@
 Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-//Index 
+//Index
 Route::get('/','DashboardController@index')->middleware('auth');
 
 // Dashboards
@@ -32,7 +32,7 @@ Route::namespace('NewParts')->middleware('auth')->group(function () {
     Route::put('/Newtdl/updateAssignerStatus/{tdl}','NewtdlController@updateAssignerStatus');
     Route::get('/Newtdl/getTdlsAssignedToOther/{id}','NewtdlController@getTdlsAssignedToOther');
 
-    //
+    //Approval
     Route::resource('/Approval', ApprovalController::class);
     Route::get('/Approval/updateAssignerStatus/{id}','ApprovalController@updateAssignerStatus');
 
